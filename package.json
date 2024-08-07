@@ -7,7 +7,7 @@
   "homepage": "https://github.com/teojs/all-in-oss",
   "repository": {
     "type": "git",
-    "url": "https://github.com/teojs/all-in-oss.git"
+    "url": "git+https://github.com/teojs/all-in-oss.git"
   },
   "bugs": "https://github.com/teojs/all-in-oss/issues",
   "exports": {
