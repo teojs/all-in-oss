@@ -1,6 +1,6 @@
 {
   "name": "@teojs/all-in-oss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "all in one oss",
   "author": "teojs <cheesen.xu@gmail.com>",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "dev": "npm run build -- --watch",
     "build": "tsup",
     "prepublishOnly": "npm run build",
-    "release": "pnpm dlx bumpp --commit --tag --push && npm publish --access public"
+    "release": "pnpm dlx bumpp next --all -y && npm publish --access public"
   },
   "dependencies": {
     "@types/ali-oss": "^6.16.11",
