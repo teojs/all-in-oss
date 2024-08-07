@@ -10,6 +10,10 @@
     "url": "git+https://github.com/teojs/all-in-oss.git"
   },
   "bugs": "https://github.com/teojs/all-in-oss/issues",
+  "keywords": [
+    "oss",
+    "aliyun"
+  ],
   "exports": {
     "./*": "./*",
     ".": {
@@ -22,14 +26,13 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "client.d.ts",
     "dist"
   ],
   "scripts": {
-    "dev": "npm run build -- --watch",
+    "dev": "tsup --watch",
     "build": "tsup",
     "prepublishOnly": "npm run build",
-    "release": "pnpm dlx bumpp next --all -y && npm publish --access public"
+    "release": "pnpm dlx bumpp --all && npm publish --access public"
   },
   "dependencies": {
     "@types/ali-oss": "^6.16.11",
