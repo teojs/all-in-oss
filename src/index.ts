@@ -1,36 +1,21 @@
-import type OSS from 'ali-oss'
+import type { OSSPlugin } from './types'
 
-export { default as aliyun } from './plugins/aliyun'
+export * from './plugins'
 
-export interface OSSClient {
-  upload: (
-    name: string,
-    file: string | File | Blob,
-    options?: OSS.PutObjectOptions
-  ) => Promise<OSS.PutObjectResult>
-  multipartUpload: (
-    name: string,
-    file: string | File | Blob,
-    options: OSS.MultipartUploadOptions
-  ) => Promise<OSS.MultipartUploadResult>
-  getObjectUrl: (name: string, baseUrl?: string) => string
-  getSignatureUrl: (name: string, options?: OSS.SignatureUrlOptions) => string
+class UseOSS<TConfig = unknown, TClient = unknown> {
+  private plugin: OSSPlugin<TConfig, TClient>
+  constructor(plugin: OSSPlugin<TConfig, TClient>, config: TConfig) {
+    this.plugin = plugin
+    this.plugin.init(config)
+  }
+
+  get client() {
+    return this.plugin.getClient()
+  }
 }
-
-export interface OSSPlugin<T> {
-  (config: T): OSSClient
-}
-
-export default function useOSS() {
-  const oss = new Proxy(
-    {
-      use: <T = any>(plugin: OSSPlugin<T>, options: T) => {
-        oss.client = plugin(options)
-      },
-      client: null as OSSClient | null,
-    },
-    {},
-  )
-
-  return oss
+export default function useOSS<TConfig = unknown, TClient = unknown>(
+  plugin: OSSPlugin<TConfig, TClient>,
+  config: TConfig,
+) {
+  return new UseOSS(plugin, config)
 }
