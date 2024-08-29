@@ -1,22 +1,20 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": ".",
+    "rootDir": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
+    "typeRoots": ["src/types", "node_modules/@types"],
     "strict": true,
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "**/dist",
-    "**/node_modules",
-    "**/test"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules", "**/test"]
 }

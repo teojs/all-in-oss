@@ -1,5 +1,6 @@
 {
   "name": "@teojs/all-in-oss",
+  "type": "module",
   "version": "0.1.1",
   "description": "all in one oss",
   "author": "teojs <cheesen.xu@gmail.com>",
@@ -32,17 +33,20 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "prepublishOnly": "npm run build",
-    "release": "pnpm dlx bumpp --all && npm publish --access public"
+    "release": "pnpm dlx bumpp --all && npm publish --access public",
+    "lint": "eslint"
   },
   "dependencies": {
     "@types/ali-oss": "^6.16.11",
-    "ali-oss": "^6.20.0"
+    "ali-oss": "^6.20.0",
+    "esdk-obs-browserjs": "^3.24.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.3.4",
     "@types/node": "^20.10.3",
     "eslint": "^8.49.0",
     "eslint-plugin-format": "^0.1.0",
+    "prettier": "^3.3.3",
     "tsup": "^8.0.1",
     "typescript": "^5.3.2"
   }
