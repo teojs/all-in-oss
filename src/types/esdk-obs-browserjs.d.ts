@@ -151,84 +151,6 @@ declare namespace ObsClient {
     SseCKeyMd5: string
   }
 
-  //   Method
-
-  // String
-
-  // 必选
-
-  // HTTP方法类型，支持的值：
-
-  // GET
-  // POST
-  // PUT
-  // DELETE
-  // HEAD
-  // Bucket
-
-  // String
-
-  // 可选
-
-  // 桶名。
-
-  // Key
-
-  // String
-
-  // 可选
-
-  // 对象名。
-
-  // SpecialParam
-
-  // String
-
-  // 可选
-
-  // 特殊操作符，代表要操作的子资源，支持的值：
-
-  // versions
-  // uploads
-  // location
-  // storageinfo
-  // quota
-  // storagePolicy
-  // acl
-  // append
-  // logging
-  // policy
-  // lifecycle
-  // website
-  // versioning
-  // cors
-  // notification
-  // tagging
-  // delete
-  // restore
-  // Expires
-
-  // Number
-
-  // 可选
-
-  // 带授权信息的URL的过期时间（单位：秒），默认值：300。
-
-  // Headers
-
-  // Object
-
-  // 可选
-
-  // 请求中携带的头域。
-
-  // QueryParams
-
-  // Object
-
-  // 可选
-
-  // 请求中携带的查询参数。
   interface CreateSignedUrlOptions {
     /** HTTP方法类型，支持的值： */
     Method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD'
@@ -269,8 +191,16 @@ declare namespace ObsClient {
     /** 请求中携带的查询参数。 */
     QueryParams?: { [key: string]: string }
   }
+
+  interface CreateSignedUrlResult {
+    SignedUrl: string
+    ActualSignedRequestHeaders: { [key: string]: string }
+  }
 }
 
+/**
+ * 生成带授权信息的URL请求参数
+ */
 declare class ObsClient {
   constructor(options: ObsClient.Options)
 
@@ -290,8 +220,10 @@ declare class ObsClient {
   ): Promise<ObsClient.BaseSuccessResponse<ObsClient.PutObjectSuccessResponse>>
 
   /**
-   * @description 创建签名URL
+   * @description 生成带授权信息的URL
+   * @see https://support.huaweicloud.com/api-obs_browserjs_sdk_api_zh/obs_34_0501.html
    */
-
-  createSignedUrlSync()
+  createSignedUrlSync(
+    optins: ObsClient.CreateSignedUrlOptions,
+  ): Promise<ObsClient.CreateSignedUrlResult>
 }
