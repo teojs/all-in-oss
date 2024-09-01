@@ -1,7 +1,5 @@
-export = ObsClient
-
-declare namespace ObsClient {
-  interface Options {
+declare module 'esdk-obs-browserjs' {
+  export interface Options {
     /** 访问密钥中的AK */
     access_key_id?: string
 
@@ -21,7 +19,7 @@ declare namespace ObsClient {
     useRawXhr?: boolean
   }
 
-  interface PutObjectOptions {
+  export interface PutObjectOptions {
     /** 桶名 */
     Bucket: string
 
@@ -91,7 +89,7 @@ declare namespace ObsClient {
     SseCKey?: string
   }
 
-  interface BaseInterfaceResult {
+  export interface BaseInterfaceResult {
     /** OBS服务端返回的请求ID。 */
     RequestId: string
     /** OBS服务端返回的请求ID2。 */
@@ -101,7 +99,7 @@ declare namespace ObsClient {
   /**
    * SDK公共结果对象
    */
-  interface BaseSuccessResponse<R extends BaseInterfaceResult> {
+  export interface BaseSuccessResponse<R extends BaseInterfaceResult> {
     /** 接口调用完成后的公共信息，包含HTTP状态码，操作失败的错误码等。 */
     CommonMsg: {
       /** HTTP状态码 */
@@ -128,7 +126,7 @@ declare namespace ObsClient {
     InterfaceResult: R
   }
 
-  interface PutObjectSuccessResponse extends BaseInterfaceResult {
+  export interface PutObjectSuccessResponse extends BaseInterfaceResult {
     /** 请求ID */
     ETag: string
 
@@ -151,7 +149,7 @@ declare namespace ObsClient {
     SseCKeyMd5: string
   }
 
-  interface CreateSignedUrlOptions {
+  export interface CreateSignedUrlOptions {
     /** HTTP方法类型，支持的值： */
     Method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD'
 
@@ -192,38 +190,37 @@ declare namespace ObsClient {
     QueryParams?: { [key: string]: string }
   }
 
-  interface CreateSignedUrlResult {
+  export interface CreateSignedUrlResult {
     SignedUrl: string
     ActualSignedRequestHeaders: { [key: string]: string }
   }
-}
 
-/**
- * 生成带授权信息的URL请求参数
- */
-declare class ObsClient {
-  constructor(options: ObsClient.Options)
+  export default class ObsClient {
+    constructor(options: Options)
 
-  /**
-   * @description 上传对象
-   * @param options 上传对象参数
-   * @param callback 上传完成后的回调函数
-   * @returns Promise<BaseSuccessResponse<PutObjectSuccessResponse>>
-   * @see https://support.huaweicloud.com/api-obs_browserjs_sdk_api_zh/obs_34_0402.html
-   */
-  putObject(
-    optins: ObsClient.PutObjectOptions,
-    callback: (
-      err: Error,
-      result: ObsClient.BaseSuccessResponse<ObsClient.PutObjectSuccessResponse>,
-    ) => void,
-  ): Promise<ObsClient.BaseSuccessResponse<ObsClient.PutObjectSuccessResponse>>
+    /**
+     * @description 上传对象
+     * @param options 上传对象参数
+     * @param callback 上传完成后的回调函数
+     * @returns Promise<BaseSuccessResponse<PutObjectSuccessResponse>>
+     * @see https://support.huaweicloud.com/api-obs_browserjs_sdk_api_zh/obs_34_0402.html
+     */
+    putObject(
+      optins: PutObjectOptions,
+      callback: (
+        err: Error,
+        result: BaseSuccessResponse<PutObjectSuccessResponse>,
+      ) => void,
+    ): Promise<
+      BaseSuccessResponse<PutObjectSuccessResponse>
+    >
 
-  /**
-   * @description 生成带授权信息的URL
-   * @see https://support.huaweicloud.com/api-obs_browserjs_sdk_api_zh/obs_34_0501.html
-   */
-  createSignedUrlSync(
-    optins: ObsClient.CreateSignedUrlOptions,
-  ): Promise<ObsClient.CreateSignedUrlResult>
+    /**
+     * @description 生成带授权信息的URL
+     * @see https://support.huaweicloud.com/api-obs_browserjs_sdk_api_zh/obs_34_0501.html
+     */
+    createSignedUrlSync(
+      optins: CreateSignedUrlOptions,
+    ): Promise<CreateSignedUrlResult>
+  }
 }

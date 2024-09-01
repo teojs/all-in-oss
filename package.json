@@ -1,7 +1,7 @@
 {
   "name": "@teojs/all-in-oss",
   "type": "module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "all in one oss",
   "author": "teojs <cheesen.xu@gmail.com>",
   "license": "MIT",

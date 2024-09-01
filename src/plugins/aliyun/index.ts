@@ -1,5 +1,5 @@
 import OSS from 'ali-oss'
-import type { OSSPlugin } from '../../types'
+import type { OSSPlugin } from 'types'
 
 /**
  * @see https://github.com/ali-sdk/ali-oss?tab=readme-ov-file#ossoptions
