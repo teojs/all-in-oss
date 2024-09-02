@@ -1,7 +1,7 @@
 {
   "name": "@teojs/all-in-oss",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "all in one oss",
   "author": "teojs <cheesen.xu@gmail.com>",
   "license": "MIT",
@@ -16,15 +16,15 @@
     "aliyun"
   ],
   "exports": {
-    "./*": "./*",
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    }
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./dist/*"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
