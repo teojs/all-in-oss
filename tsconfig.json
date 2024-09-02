@@ -7,11 +7,11 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "paths": {
-      "@/types/*": ["types/*"]
+      "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
-    "typeRoots": ["./types", "./node_modules/@types"],
-    "types": ["ali-oss", "esdk-obs-browserjs/index.d.ts"],
+    "typeRoots": ["src/types", "node_modules/@types"],
+    "types": ["ali-oss", "esdk-obs-browserjs.d.ts"],
     "strict": true,
     "strictNullChecks": true,
     "noUnusedParameters": true,
@@ -22,7 +22,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  // "files": ["types/index.ts", "types/esdk-obs-browserjs/index.d.ts"],
-  "include": ["src/**/*", "types/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["dist", "node_modules", "**/test"]
 }

@@ -1,7 +1,5 @@
-/// <reference types="../../../types/esdk-obs-browserjs/index.d.ts" />
-
 import ObsClient, { type Options } from 'esdk-obs-browserjs'
-import type { OSSPlugin } from 'types'
+import type { OSSPlugin } from '@/index.d'
 
 /**
  * @see https://github.com/huaweicloud/huaweicloud-sdk-browserjs-obs

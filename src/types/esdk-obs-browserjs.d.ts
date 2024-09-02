@@ -211,9 +211,7 @@ declare module 'esdk-obs-browserjs' {
         err: Error,
         result: BaseSuccessResponse<PutObjectSuccessResponse>,
       ) => void,
-    ): Promise<
-      BaseSuccessResponse<PutObjectSuccessResponse>
-    >
+    ): Promise<BaseSuccessResponse<PutObjectSuccessResponse>>
 
     /**
      * @description 生成带授权信息的URL

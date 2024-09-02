@@ -8,12 +8,11 @@ export default defineConfig((options) => {
     minify: !options.watch,
     clean: true,
     splitting: true,
-    dts: {
+    experimentalDts: {
       entry: {
-        'index': 'src/index.ts',
-        'esdk-obs-browserjs': 'types/esdk-obs-browserjs/index.d.ts',
+        index: 'src/index.ts',
       },
-      resolve: ['types/esdk-obs-browserjs/index.d.ts'],
     },
+    publicDir: 'src/types',
   }
 })

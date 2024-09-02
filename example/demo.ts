@@ -1,5 +1,5 @@
 /* eslint-disable antfu/no-import-dist */
-import useOSS, { aliyun, huaweicloud } from '../dist/index'
+import useOSS, { aliyun, huaweicloud } from '../dist'
 
 useOSS(aliyun, {
   accessKeyId: 'your accessKeyId',

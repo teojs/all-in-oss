@@ -1,6 +1,6 @@
-/// <reference types="./esdk-obs-browserjs/index.d.ts" />
+/// <reference types="./esdk-obs-browserjs.d.ts" />
 
-import type { OSSPlugin } from 'types'
+import type { OSSPlugin } from '@/index.d'
 
 export { default as aliyun } from './plugins/aliyun'
 
