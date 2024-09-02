@@ -219,6 +219,6 @@ declare module 'esdk-obs-browserjs' {
      */
     createSignedUrlSync(
       optins: CreateSignedUrlOptions,
-    ): Promise<CreateSignedUrlResult>
+    ): CreateSignedUrlResult
   }
 }
